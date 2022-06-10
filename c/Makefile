@@ -1,12 +1,13 @@
 NAME		= pzem
-SRCS		= main.c
+SRCS		= $(addprefix srcs/, config.c main.c)
 OBJS		= $(SRCS:.c=.o)
+INCL		= -I includes
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
 %.o:		%.c
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) $(INCL) -c $< -o $@
 
 all:		$(NAME)
 

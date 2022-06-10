@@ -48,7 +48,12 @@ int	main(int argc, char **argv)
 		return -1;
 	}
 
-	read_and_print_data(&config);
+	while (1)
+	{
+		read_and_print_data(&config);
+		sleep(1);
+		printf("----------\n");
+	}
 
 	modbus_close(config.mb);
 	modbus_free(config.mb);

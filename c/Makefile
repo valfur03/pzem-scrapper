@@ -1,7 +1,8 @@
 NAME		= pzem
-SRCS		= $(addprefix srcs/, config.c main.c)
+SRCS		= $(addprefix srcs/, main.c)
 OBJS		= $(SRCS:.c=.o)
-INCL		= -I includes
+INCL		= -Iincludes
+LIBS		= -lmodbus
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
@@ -12,7 +13,7 @@ RM			= rm -f
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $^ -o $@
+			$(CC) $^ -o $@ $(LIBS)
 
 clean:
 			$(RM) $(OBJS)
